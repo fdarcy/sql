@@ -38,7 +38,7 @@ public class SqlTest {
     void shouldGetErrorNotificationIfLoginWithRandomUserWithoutAddingToBase() {
         var authInfo = DataHelper.generateRandomUser();
         loginPage.validLogin(authInfo);
-        loginPage.verifyErrorNotification("Ошибка! Неверно указан логин или пароль");
+        loginPage.verifyErrorNotification("Ошибка! \nНеверно указан логин или пароль");
     }
     @Test
     @DisplayName("Should get error notification if login with exist in base and active user and random verification code")
@@ -48,6 +48,6 @@ public class SqlTest {
         verificationPage.verifyVerificationPageVisiblity();
         var verificationCode = DataHelper.generateRandomVerificationCode();
         verificationPage.verify(verificationCode.getCode());
-        verificationPage.verifyErrorNotification("Ошибка! Неверно указан код! Попробуй еще раз.");
+        verificationPage.verifyErrorNotification("Ошибка! \nНеверно указан код! Попробуй еще раз.");
     }
 }
